@@ -76,12 +76,10 @@ func (e Empresa) UploadCertificado(empresaID string, password string, cert []byt
 	bodyBuf := &bytes.Buffer{}
 	bodyWriter := multipart.NewWriter(bodyBuf)
 	bodyWriter.WriteField("senha", password)
-	fmt.Println(password)
 
 	filename := empresaID + ".pfx"
 	fileWriter, err := bodyWriter.CreateFormFile("arquivo", filename)
 	if err != nil {
-		fmt.Println("error writing to buffer")
 		return err
 	}
 	r := bytes.NewReader(cert)
