@@ -1,24 +1,29 @@
 package entity
 
-import "github.com/hashicorp/go-uuid"
+import (
+	"time"
+
+	"github.com/hashicorp/go-uuid"
+)
 
 // NFSE representa a Nota Fiscal de Serviço Eletrônica
 type NFSe struct {
-	ID                string   `json:"id,omitempty"`
-	Tipo              string   `json:"tipo,omitempty"`
-	IdExterno         string   `json:"idExterno,omitempty"`
-	Status            string   `json:"status,omitempty"`
-	MotivoStatus      string   `json:"motivoStatus,omitempty"`
-	Ambiente          Ambiente `json:"ambienteEmissao"`
-	Numero            int      `json:"numero,omitempty"`
-	CodigoVerificacao string   `json:"codigoVerificacao,omitempty"`
-	ChaveAcesso       string   `json:"chaveAcesso,omitempty"`
-	NumeroRPS         int      `json:"numeroRps,omitempty"`
-	SerieRPS          string   `json:"serieRps,omitempty"`
-	EnviarPorEmail    bool     `json:"enviarPorEmail"`
-	ValorTotal        float64  `json:"valorTotal"`
-	Cliente           Cliente  `json:"cliente"`
-	Servico           Servico  `json:"servico"`
+	ID                string    `json:"id,omitempty"`
+	Tipo              string    `json:"tipo,omitempty"`
+	IdExterno         string    `json:"idExterno,omitempty"`
+	Status            string    `json:"status,omitempty"`
+	MotivoStatus      string    `json:"motivoStatus,omitempty"`
+	Ambiente          Ambiente  `json:"ambienteEmissao"`
+	DataCompetencia   time.Time `json:"dataCompetencia,omitempty"`
+	Numero            int       `json:"numero,omitempty"`
+	CodigoVerificacao string    `json:"codigoVerificacao,omitempty"`
+	ChaveAcesso       string    `json:"chaveAcesso,omitempty"`
+	NumeroRPS         int       `json:"numeroRps,omitempty"`
+	SerieRPS          string    `json:"serieRps,omitempty"`
+	EnviarPorEmail    bool      `json:"enviarPorEmail"`
+	ValorTotal        float64   `json:"valorTotal"`
+	Cliente           Cliente   `json:"cliente"`
+	Servico           Servico   `json:"servico"`
 }
 
 // NewNFSe cria um nova nota fiscal
