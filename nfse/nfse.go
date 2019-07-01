@@ -44,6 +44,21 @@ func (n NFSe) Cancelar(empresaID, id string) (string, error) {
 	return ret.ID, nil
 }
 
+func (n NFSe) CancelarPorIdExterno(empresaID, id string) (string, error) {
+	url := fmt.Sprintf("%s/empresas/%s/nfes/porIdExterno/%s", config.Endpoint, empresaID, id)
+	response := n.client.Delete(url)
+	if response.Error != nil {
+		return "", response.Error
+	}
+	var ret struct {
+		ID string `json:"nfeId"`
+	}
+	if err := json.Unmarshal(response.Body, &ret); err != nil {
+		return "", errors.New("Erro no retorno do cancelamento da Nota Fiscal.")
+	}
+	return ret.ID, nil
+}
+
 func (n NFSe) Consultar(empresaID, id string) (entity.NFSe, error) {
 	var nota entity.NFSe
 
