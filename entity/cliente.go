@@ -1,6 +1,9 @@
 package entity
 
-import "regexp"
+import (
+	"encoding/json"
+	"regexp"
+)
 
 type Cliente struct {
 	TipoPessoa                TipoPessoa `json:"tipoPessoa"`
@@ -14,6 +17,22 @@ type Cliente struct {
 	Endereco                  Endereco   `json:"endereco"`
 }
 
+func (c Cliente) MarshalJSON() ([]byte, error) {
+	tp := c.TipoPessoa
+	if string(c.TipoPessoa) == "" {
+		tp = tipoPessoa(c.CpfCnpj)
+	}
+
+	type Alias Cliente
+	return json.Marshal(&struct {
+		TipoPessoa TipoPessoa `json:"tipoPessoa"`
+		Alias
+	}{
+		Alias:      (Alias)(c),
+		TipoPessoa: tp,
+	})
+}
+
 func NewCliente(n string, d string, end Endereco) Cliente {
 	c := Cliente{
 		Nome:     n,
@@ -25,12 +44,14 @@ func NewCliente(n string, d string, end Endereco) Cliente {
 }
 
 func (c *Cliente) AutoTipoPessoa() {
-	switch len(onlyNumbers(c.CpfCnpj)) {
-	case 11:
-		c.TipoPessoa = PessoaFisica
-	case 14:
-		c.TipoPessoa = PessoaJuridica
+	c.TipoPessoa = tipoPessoa(c.CpfCnpj)
+}
+
+func tipoPessoa(doc string) TipoPessoa {
+	if len(onlyNumbers(doc)) == 14 {
+		return PessoaJuridica
 	}
+	return PessoaFisica
 }
 
 func onlyNumbers(s string) string {

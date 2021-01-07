@@ -1,6 +1,7 @@
 package entity
 
 import (
+	"encoding/json"
 	"time"
 
 	"github.com/hashicorp/go-uuid"
@@ -24,6 +25,22 @@ type NFSe struct {
 	ValorTotal        float64    `json:"valorTotal"`
 	Cliente           Cliente    `json:"cliente"`
 	Servico           Servico    `json:"servico"`
+}
+
+func (n NFSe) MarshalJSON() ([]byte, error) {
+	var dataCompetencia string
+	if n.DataCompetencia != nil {
+		dataCompetencia = n.DataCompetencia.Format("2006-01-02T15:04Z")
+	}
+
+	type Alias NFSe
+	return json.Marshal(&struct {
+		Alias
+		DataCompetencia string `json:"dataCompetencia,omitempty"`
+	}{
+		Alias:           (Alias)(n),
+		DataCompetencia: dataCompetencia,
+	})
 }
 
 // NewNFSe cria um nova nota fiscal
