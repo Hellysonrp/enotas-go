@@ -37,10 +37,12 @@ func NewClient(credentials config.Credentials) *client {
 }
 
 func (r *client) Delete(url string) Response {
+	r.AddHeader("Content-Type", "application/json")
 	return r.Send(http.MethodDelete, url, nil)
 }
 
 func (r *client) Get(url string) Response {
+	r.AddHeader("Content-Type", "application/json")
 	return r.Send(http.MethodGet, url, nil)
 }
 
