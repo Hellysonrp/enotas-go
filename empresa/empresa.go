@@ -18,13 +18,13 @@ type Empresa struct {
 	client rest.Client
 }
 
-func NewEmpresa(client rest.Client) Empresa {
-	return Empresa{
+func NewEmpresa(client rest.Client) *Empresa {
+	return &Empresa{
 		client: client,
 	}
 }
 
-func (e Empresa) Consultar(id string) (entity.Empresa, error) {
+func (e *Empresa) Consultar(id string) (entity.Empresa, error) {
 	var empresa entity.Empresa
 	url := fmt.Sprintf("%s/empresas/%s", config.Endpoint, id)
 	response := e.client.Get(url)
@@ -35,7 +35,7 @@ func (e Empresa) Consultar(id string) (entity.Empresa, error) {
 	return empresa, err
 }
 
-func (e Empresa) Listar(pageNumber, pageSize int) ([]entity.Empresa, error) {
+func (e *Empresa) Listar(pageNumber, pageSize int) ([]entity.Empresa, error) {
 	var empresas struct {
 		TotalRecords int              `json:"totalRecords"`
 		Data         []entity.Empresa `json:"data"`
@@ -49,7 +49,7 @@ func (e Empresa) Listar(pageNumber, pageSize int) ([]entity.Empresa, error) {
 	return empresas.Data, err
 }
 
-func (e Empresa) Salvar(emp entity.Empresa) (string, error) {
+func (e *Empresa) Salvar(emp entity.Empresa) (string, error) {
 	url := fmt.Sprintf("%s/empresas", config.Endpoint)
 	body, err := json.Marshal(emp)
 	if err != nil {
@@ -71,7 +71,7 @@ func (e Empresa) Salvar(emp entity.Empresa) (string, error) {
 	return ret.ID, nil
 }
 
-func (e Empresa) UploadCertificado(empresaID string, password string, cert []byte) error {
+func (e *Empresa) UploadCertificado(empresaID string, password string, cert []byte) error {
 	url := fmt.Sprintf("%s/empresas/{%s}/certificadoDigital", config.Endpoint, empresaID)
 	bodyBuf := &bytes.Buffer{}
 	bodyWriter := multipart.NewWriter(bodyBuf)

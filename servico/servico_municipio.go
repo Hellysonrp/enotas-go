@@ -13,13 +13,13 @@ type ServicoMunicipio struct {
 	client rest.Client
 }
 
-func NewServicoMunicipio(client rest.Client) ServicoMunicipio {
-	return ServicoMunicipio{
+func NewServicoMunicipio(client rest.Client) *ServicoMunicipio {
+	return &ServicoMunicipio{
 		client: client,
 	}
 }
 
-func (s ServicoMunicipio) Consulta(uf, city string, pageNumber, pageSize int) ([]entity.ServicoMunicipio, error) {
+func (s *ServicoMunicipio) Consulta(uf, city string, pageNumber, pageSize int) ([]entity.ServicoMunicipio, error) {
 	var servicos struct {
 		TotalRecords int                       `json:"totalRecords"`
 		Data         []entity.ServicoMunicipio `json:"data"`

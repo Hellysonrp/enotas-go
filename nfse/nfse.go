@@ -14,13 +14,13 @@ type NFSe struct {
 	client rest.Client
 }
 
-func NewNFSe(client rest.Client) NFSe {
-	return NFSe{
+func NewNFSe(client rest.Client) *NFSe {
+	return &NFSe{
 		client: client,
 	}
 }
 
-func (n NFSe) Habilitar(empresaID string) error {
+func (n *NFSe) Habilitar(empresaID string) error {
 	url := fmt.Sprintf("%s/empresas/%s/habilitar", config.Endpoint, empresaID)
 	response := n.client.Post(url, nil)
 	if response.Error != nil {
@@ -29,7 +29,7 @@ func (n NFSe) Habilitar(empresaID string) error {
 	return nil
 }
 
-func (n NFSe) Cancelar(empresaID, id string) (string, error) {
+func (n *NFSe) Cancelar(empresaID, id string) (string, error) {
 	url := fmt.Sprintf("%s/empresas/%s/nfes/%s", config.Endpoint, empresaID, id)
 	response := n.client.Delete(url)
 	if response.Error != nil {
@@ -44,7 +44,7 @@ func (n NFSe) Cancelar(empresaID, id string) (string, error) {
 	return ret.ID, nil
 }
 
-func (n NFSe) CancelarPorIdExterno(empresaID, id string) (string, error) {
+func (n *NFSe) CancelarPorIdExterno(empresaID, id string) (string, error) {
 	url := fmt.Sprintf("%s/empresas/%s/nfes/porIdExterno/%s", config.Endpoint, empresaID, id)
 	response := n.client.Delete(url)
 	if response.Error != nil {
@@ -59,19 +59,19 @@ func (n NFSe) CancelarPorIdExterno(empresaID, id string) (string, error) {
 	return ret.ID, nil
 }
 
-func (n NFSe) Consultar(empresaID, id string) (entity.NFSe, error) {
-	var nota entity.NFSe
+func (n *NFSe) Consultar(empresaID, id string) (*entity.NFSe, error) {
+	nota := &entity.NFSe{}
 
 	url := fmt.Sprintf("%s/empresas/%s/nfes/%s", config.Endpoint, empresaID, id)
 	response := n.client.Get(url)
 	if response.Error != nil {
 		return nota, response.Error
 	}
-	err := json.Unmarshal(response.Body, &nota)
+	err := json.Unmarshal(response.Body, nota)
 	return nota, err
 }
 
-func (n NFSe) Desabilitar(empresaID string) error {
+func (n *NFSe) Desabilitar(empresaID string) error {
 	url := fmt.Sprintf("%s/empresas/%s/desabilitar", config.Endpoint, empresaID)
 	response := n.client.Post(url, nil)
 	if response.Error != nil {
@@ -81,7 +81,7 @@ func (n NFSe) Desabilitar(empresaID string) error {
 	return nil
 }
 
-func (n NFSe) DownloadPDF(empresaID, id string) ([]byte, error) {
+func (n *NFSe) DownloadPDF(empresaID, id string) ([]byte, error) {
 	url := fmt.Sprintf("%s/empresas/%s/nfes/%s/pdf", config.Endpoint, empresaID, id)
 	response := n.client.Get(url)
 	if response.Error != nil {
@@ -91,7 +91,7 @@ func (n NFSe) DownloadPDF(empresaID, id string) ([]byte, error) {
 	return response.Body, nil
 }
 
-func (n NFSe) DownloadXML(empresaID, id string) ([]byte, error) {
+func (n *NFSe) DownloadXML(empresaID, id string) ([]byte, error) {
 	url := fmt.Sprintf("%s/empresas/%s/nfes/%s/xml", config.Endpoint, empresaID, id)
 	response := n.client.Get(url)
 	if response.Error != nil {
@@ -101,7 +101,7 @@ func (n NFSe) DownloadXML(empresaID, id string) ([]byte, error) {
 	return response.Body, nil
 }
 
-func (n NFSe) Emitir(empresaID string, nfse entity.NFSe) (string, error) {
+func (n *NFSe) Emitir(empresaID string, nfse *entity.NFSe) (string, error) {
 	url := fmt.Sprintf("%s/empresas/%s/nfes", config.Endpoint, empresaID)
 	body, err := json.Marshal(nfse)
 	if err != nil {

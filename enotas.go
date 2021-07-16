@@ -17,36 +17,36 @@ func Configure(apiKey string) config.Credentials {
 	return config.Configure(apiKey)
 }
 
-func NewENotas(c config.Credentials) ENotas {
-	return ENotas{
+func NewENotas(c config.Credentials) *ENotas {
+	return &ENotas{
 		credentials: c,
 	}
 }
 
-func (e ENotas) Cidades(pageNumber, pageSize int) ([]entity.Cidade, error) {
+func (e *ENotas) Cidades(pageNumber, pageSize int) ([]entity.Cidade, error) {
 	c := e.getClient()
 	return servico.NewCidadeServico(c).Consulta(pageNumber, pageSize)
 }
 
-func (e ENotas) Credentials() config.Credentials {
+func (e *ENotas) Credentials() config.Credentials {
 	return e.credentials
 }
 
-func (e ENotas) Empresa() empresa.Empresa {
+func (e *ENotas) Empresa() *empresa.Empresa {
 	c := e.getClient()
 	return empresa.NewEmpresa(c)
 }
 
-func (e ENotas) NFSe() nfse.NFSe {
+func (e *ENotas) NFSe() *nfse.NFSe {
 	c := e.getClient()
 	return nfse.NewNFSe(c)
 }
 
-func (e ENotas) ServicosMunicipais(uf, city string, pageNumber, pageSize int) ([]entity.ServicoMunicipio, error) {
+func (e *ENotas) ServicosMunicipais(uf, city string, pageNumber, pageSize int) ([]entity.ServicoMunicipio, error) {
 	c := e.getClient()
 	return servico.NewServicoMunicipio(c).Consulta(uf, city, pageNumber, pageSize)
 }
 
-func (e ENotas) getClient() rest.Client {
+func (e *ENotas) getClient() rest.Client {
 	return rest.NewClient(e.credentials)
 }
