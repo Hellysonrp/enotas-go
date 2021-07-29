@@ -43,7 +43,7 @@ func TestNFSeMarshalJSON(t *testing.T) {
 		t.Errorf("Expected no error, got %v", err)
 	}
 
-	expected := `{"id":"e93ceafb-6fd9-4543-9106-e0aebac9ef8d","ambienteEmissao":"Homologacao","numero":42,"enviarPorEmail":false,"valorTotal":3.47,"cliente":{"tipoPessoa":"F","nome":"John Doe","email":"john@doe.com","cpfCnpj":"47142365471","endereco":{"logradouro":"","numero":"","bairro":"","cep":"","cidade":"","uf":""}},"servico":{"cnae":"","codigoServicoMunicicio":"","descricao":"","aliquotaIss":0,"issRetidoFonte":false,"valorPis":0,"valorCofins":0,"valorCsll":0,"valorInss":0,"valorIr":0},"dataCompetencia":"2006-01-02T15:04Z"}`
+	expected := `{"id":"e93ceafb-6fd9-4543-9106-e0aebac9ef8d","ambienteEmissao":"Homologacao","numero":42,"enviarPorEmail":false,"valorTotal":3.47,"cliente":{"tipoPessoa":"F","nome":"John Doe","email":"john@doe.com","cpfCnpj":"47142365471","endereco":{"logradouro":"","numero":"","bairro":"","cep":"","cidade":"","uf":""}},"servico":{"cnae":"","codigoServicoMunicipio":"","descricao":"","aliquotaIss":0,"issRetidoFonte":false,"valorPis":0,"valorCofins":0,"valorCsll":0,"valorInss":0,"valorIr":0},"dataCompetencia":"2006-01-02T15:04Z"}`
 	if string(b) != expected {
 		t.Errorf("Expected '%s', got %s", expected, string(b))
 	}

@@ -3,7 +3,7 @@ package entity
 // Servico representa o objeto contendo os dados do serviço prestado
 type Servico struct {
 	CNAE                   string  `json:"cnae"`
-	CodigoServicoMunicipio string  `json:"codigoServicoMunicicio"`
+	CodigoServicoMunicipio string  `json:"codigoServicoMunicipio"`
 	Descricao              string  `json:"descricao"`
 	AliquotaISS            float64 `json:"aliquotaIss"`
 	IssRetidoFonte         bool    `json:"issRetidoFonte"`
