@@ -25,7 +25,7 @@ func TestCidadeMarshal(t *testing.T) {
 func TestClientePessoaJuridica(t *testing.T) {
 	end := Endereco{}
 	cliente := NewCliente("Empresa", "33224970000120", end)
-	if tipo := cliente.TipoPessoa; tipo != PessoaJuridica {
-		t.Errorf("Expected '%s' got '%s'", PessoaJuridica, tipo)
+	if tipo := cliente.TipoPessoa; tipo != TipoPessoa_PessoaJuridica {
+		t.Errorf("Expected '%s' got '%s'", TipoPessoa_PessoaJuridica, tipo)
 	}
 }

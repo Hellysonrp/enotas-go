@@ -71,6 +71,25 @@ func (e *Empresa) Salvar(emp entity.Empresa) (string, error) {
 	return ret.ID, nil
 }
 
+func (e *Empresa) Habilitar(id string) error {
+	url := fmt.Sprintf("%s/empresas/%s/habilitar", config.Endpoint, id)
+	response := e.client.Post(url, nil)
+	if response.Error != nil {
+		return response.Error
+	}
+	return nil
+}
+
+func (e *Empresa) Desabilitar(id string) error {
+	url := fmt.Sprintf("%s/empresas/%s/desabilitar", config.Endpoint, id)
+	response := e.client.Post(url, nil)
+	if response.Error != nil {
+		return response.Error
+	}
+
+	return nil
+}
+
 func (e *Empresa) UploadCertificado(empresaID string, password string, cert []byte) error {
 	url := fmt.Sprintf("%s/empresas/{%s}/certificadoDigital", config.Endpoint, empresaID)
 	bodyBuf := &bytes.Buffer{}

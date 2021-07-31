@@ -49,9 +49,9 @@ func (c *Cliente) AutoTipoPessoa() {
 
 func tipoPessoa(doc string) TipoPessoa {
 	if len(onlyNumbers(doc)) == 14 {
-		return PessoaJuridica
+		return TipoPessoa_PessoaJuridica
 	}
-	return PessoaFisica
+	return TipoPessoa_PessoaFisica
 }
 
 func onlyNumbers(s string) string {

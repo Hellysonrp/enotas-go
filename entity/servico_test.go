@@ -22,7 +22,7 @@ func TestNewServico(t *testing.T) {
 	if c := s.CNAE; c != cnaeTeste {
 		t.Errorf("Expected '%s' got '%s'", cnaeTeste, c)
 	}
-	if iss := s.AliquotaISS; iss != aliquotaIssTeste {
-		t.Errorf("Expected '%f' got '%f'", aliquotaIssTeste, iss)
+	if iss := s.AliquotaISS; iss != nil && *iss != aliquotaIssTeste {
+		t.Errorf("Expected '%f' got '%v'", aliquotaIssTeste, iss)
 	}
 }

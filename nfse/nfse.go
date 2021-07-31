@@ -20,15 +20,6 @@ func NewNFSe(client rest.Client) *NFSe {
 	}
 }
 
-func (n *NFSe) Habilitar(empresaID string) error {
-	url := fmt.Sprintf("%s/empresas/%s/habilitar", config.Endpoint, empresaID)
-	response := n.client.Post(url, nil)
-	if response.Error != nil {
-		return response.Error
-	}
-	return nil
-}
-
 func (n *NFSe) Cancelar(empresaID, id string) (string, error) {
 	url := fmt.Sprintf("%s/empresas/%s/nfes/%s", config.Endpoint, empresaID, id)
 	response := n.client.Delete(url)
@@ -69,16 +60,6 @@ func (n *NFSe) Consultar(empresaID, id string) (*entity.NFSe, error) {
 	}
 	err := json.Unmarshal(response.Body, nota)
 	return nota, err
-}
-
-func (n *NFSe) Desabilitar(empresaID string) error {
-	url := fmt.Sprintf("%s/empresas/%s/desabilitar", config.Endpoint, empresaID)
-	response := n.client.Post(url, nil)
-	if response.Error != nil {
-		return response.Error
-	}
-
-	return nil
 }
 
 func (n *NFSe) DownloadPDF(empresaID, id string) ([]byte, error) {
