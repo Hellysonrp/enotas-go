@@ -5,6 +5,7 @@ import (
 	"github.com/padmoney/enotas-go/empresa"
 	"github.com/padmoney/enotas-go/entity"
 	"github.com/padmoney/enotas-go/internal/rest"
+	"github.com/padmoney/enotas-go/nfe"
 	"github.com/padmoney/enotas-go/nfse"
 	"github.com/padmoney/enotas-go/servico"
 )
@@ -35,6 +36,11 @@ func (e *ENotas) Credentials() config.Credentials {
 func (e *ENotas) Empresa() *empresa.Empresa {
 	c := e.getClient()
 	return empresa.NewEmpresa(c)
+}
+
+func (e *ENotas) NFe() *nfe.NFe {
+	c := e.getClient()
+	return nfe.NewNFe(c)
 }
 
 func (e *ENotas) NFSe() *nfse.NFSe {
