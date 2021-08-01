@@ -71,6 +71,28 @@ func (e *Empresa) Salvar(emp entity.Empresa) (string, error) {
 	return ret.ID, nil
 }
 
+func (e *Empresa) SalvarV2(emp entity.EmpresaV2) (string, error) {
+	url := fmt.Sprintf("%s/empresas", config.EndpointV2)
+	body, err := json.Marshal(emp)
+	if err != nil {
+		return "", err
+	}
+	response := e.client.Post(url, body)
+	if response.Error != nil {
+		return "", response.Error
+	}
+	if !response.Ok() {
+		return "", errors.New("Erro ao incluir/atualizar a empresa.")
+	}
+	var ret struct {
+		ID string `json:"empresaId"`
+	}
+	if err := json.Unmarshal(response.Body, &ret); err != nil {
+		return "", errors.New("Erro no retorno ao incluir/atualizar a empresa.")
+	}
+	return ret.ID, nil
+}
+
 func (e *Empresa) Habilitar(id string) error {
 	url := fmt.Sprintf("%s/empresas/%s/habilitar", config.Endpoint, id)
 	response := e.client.Post(url, nil)
