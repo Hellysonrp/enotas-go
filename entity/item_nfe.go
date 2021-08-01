@@ -13,7 +13,9 @@ type ItemNFe struct {
 }
 
 type ItemNFeImpostos struct {
-	ICMS *ItemNFeICMS `json:"icms,omitempty"`
+	ICMS   *ItemNFeICMS  `json:"icms,omitempty"`
+	Pis    ItemNFePis    `json:"pis"`
+	Cofins ItemNFeCofins `json:"cofins"`
 }
 
 type ItemNFeICMS struct {
