@@ -4,7 +4,7 @@ type ConfigNFSe struct {
 	Sequencial     int    `json:"sequencialNFe"`
 	Serie          string `json:"serieNFe"`
 	SequencialLote int    `json:"sequencialLoteNFe"`
-	Usuario        string `jsson:"usuarioAcessoProvedor"`
+	Usuario        string `json:"usuarioAcessoProvedor"`
 	Senha          string `json:"senhaAcessoProvedor"`
 	TokenAcesso    string `json:"tokenAcessoProvedor"`
 }
