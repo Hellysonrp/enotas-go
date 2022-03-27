@@ -36,3 +36,16 @@ func (n *NFe) Emitir(empresaID string, nfe *entity.NFe) error {
 	}
 	return nil
 }
+
+func (n *NFe) Cancelar(empresaID, id string) error {
+	url := fmt.Sprintf("%s/empresas/%s/nf-e/%s", config.EndpointV2, empresaID, id)
+	response := n.client.Delete(url)
+	if response.Error != nil {
+		return response.Error
+	}
+	if !response.Ok() {
+		return errors.New("erro no retorno do cancelamento da Nota Fiscal: " + strconv.FormatInt(int64(response.Code), 10))
+	}
+
+	return nil
+}

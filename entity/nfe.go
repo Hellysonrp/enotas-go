@@ -26,12 +26,3 @@ func NewNFe(c Cliente, itens []ItemNFe, a Ambiente) *NFe {
 		Ambiente: a,
 	}
 }
-
-func NewNFCe(c Cliente, itens []ItemNFe, a Ambiente) *NFe {
-	return &NFe{
-		Tipo:     "NFC-e",
-		Cliente:  c,
-		Itens:    itens,
-		Ambiente: a,
-	}
-}

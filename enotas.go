@@ -5,6 +5,7 @@ import (
 	"github.com/padmoney/enotas-go/empresa"
 	"github.com/padmoney/enotas-go/entity"
 	"github.com/padmoney/enotas-go/internal/rest"
+	"github.com/padmoney/enotas-go/nfce"
 	"github.com/padmoney/enotas-go/nfe"
 	"github.com/padmoney/enotas-go/nfse"
 	"github.com/padmoney/enotas-go/servico"
@@ -46,6 +47,11 @@ func (e *ENotas) NFe() *nfe.NFe {
 func (e *ENotas) NFSe() *nfse.NFSe {
 	c := e.getClient()
 	return nfse.NewNFSe(c)
+}
+
+func (e *ENotas) NFCe() *nfce.NFCe {
+	c := e.getClient()
+	return nfce.NewNFCe(c)
 }
 
 func (e *ENotas) ServicosMunicipais(uf, city string, pageNumber, pageSize int) ([]entity.ServicoMunicipio, error) {
