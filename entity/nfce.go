@@ -12,7 +12,7 @@ type NFCe struct {
 	Numero                uint64    `json:"numero"`
 	Serie                 string    `json:"serie"`
 	Itens                 []ItemNFe `json:"itens"`
-	Cliente               Cliente   `json:"cliente,omitempty"`
+	Cliente               *Cliente  `json:"cliente,omitempty"`
 }
 
 type CSC struct {
@@ -35,11 +35,35 @@ type Pedido struct {
 	Pagamento          Pagamento `json:"pagamento"`
 }
 
-func NewNFCe(c Cliente, itens []ItemNFe, a Ambiente) *NFCe {
+func NewNFCe(c *Cliente, itens []ItemNFe, a Ambiente) *NFCe {
 	return &NFCe{
 		Tipo:     "NFC-e",
 		Cliente:  c,
 		Itens:    itens,
 		Ambiente: a,
 	}
+}
+
+type QrCode struct {
+	Conteudo string `json:"conteudo"`
+}
+
+type Protocolo struct {
+	Numero      string `json:"numero"`
+	DigestValue string `json:"digestValue"`
+}
+
+type NFCeResponse struct {
+	Id                         string    `json:"id"`
+	Ambiente                   Ambiente  `json:"ambienteEmissao"`
+	Status                     string    `json:"status"`
+	Numero                     string    `json:"numero"`
+	Serie                      string    `json:"serie"`
+	ChaveAcesso                string    `json:"chaveAcesso"`
+	LinkDownloadXml            string    `json:"linkDownloadXml"`
+	LinkDanfe                  string    `json:"linkDanfe"`
+	LinkConsultaPorChaveAcesso string    `json:"linkConsultaPorChaveAcesso"`
+	QrCode                     QrCode    `json:"qrode"`
+	Protocolo                  Protocolo `json:"protocolo"`
+	InformacoesAdicionais      string    `json:"informacoesAdicionais"`
 }

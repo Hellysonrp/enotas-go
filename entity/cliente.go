@@ -6,15 +6,15 @@ import (
 )
 
 type Cliente struct {
-	TipoPessoa                TipoPessoa `json:"tipoPessoa"`
-	Nome                      string     `json:"nome"`
-	Email                     string     `json:"email"`
-	CpfCnpj                   string     `json:"cpfCnpj"`
+	TipoPessoa                TipoPessoa `json:"tipoPessoa,omitempty"`
+	Nome                      string     `json:"nome,omitempty"`
+	Email                     string     `json:"email,omitempty"`
+	CpfCnpj                   string     `json:"cpfCnpj,omitempty"`
 	InscricaoMunicipal        string     `json:"instricaoMunicipal,omitempty"`
 	InscricaoEstadual         string     `json:"inscricaoEstadual,omitempty"`
 	IndicadorContribuinteICMS string     `json:"indicadorContribuinteICMS,omitempty"`
 	Telefone                  string     `json:"telefone,omitempty"`
-	Endereco                  Endereco   `json:"endereco"`
+	Endereco                  Endereco   `json:"endereco,omitempty"`
 }
 
 func (c Cliente) MarshalJSON() ([]byte, error) {
