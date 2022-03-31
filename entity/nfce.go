@@ -57,13 +57,15 @@ type NFCeResponse struct {
 	Id                         string    `json:"id"`
 	Ambiente                   Ambiente  `json:"ambienteEmissao"`
 	Status                     string    `json:"status"`
-	Numero                     string    `json:"numero"`
+	MotivoStatus               string    `json:"motivoStatus"`
+	Numero                     uint64    `json:"numero"`
 	Serie                      string    `json:"serie"`
 	ChaveAcesso                string    `json:"chaveAcesso"`
 	LinkDownloadXml            string    `json:"linkDownloadXml"`
 	LinkDanfe                  string    `json:"linkDanfe"`
 	LinkConsultaPorChaveAcesso string    `json:"linkConsultaPorChaveAcesso"`
-	QrCode                     QrCode    `json:"qrode"`
+	QrCode                     QrCode    `json:"qrCode"`
 	Protocolo                  Protocolo `json:"protocolo"`
 	InformacoesAdicionais      string    `json:"informacoesAdicionais"`
+	DataEmissao                string    `json:"dataEmissao"`
 }
