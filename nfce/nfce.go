@@ -51,8 +51,25 @@ func (n *NFCe) Cancelar(empresaID, id string) error {
 		return response.Error
 	}
 	if !response.Ok() {
-		return errors.New("erro no retorno do cancelamento da Nota Fiscal: " + strconv.FormatInt(int64(response.Code), 10))
+		return errors.New("erro no retorno do cancelamento da Nota Fiscal Consumidor: " + strconv.FormatInt(int64(response.Code), 10))
 	}
 
 	return nil
+}
+
+func (n *NFCe) Consultar(empresaID, id string) (*entity.NFCeResponse, error) {
+	url := fmt.Sprintf("%s/empresas/%s/nfc-e/%s", config.EndpointV2, empresaID, id)
+	response := n.client.Get(url)
+	if response.Error != nil {
+		return nil, response.Error
+	}
+	if !response.Ok() {
+		return nil, errors.New("erro no retorno da consulta da Nota Fiscal Consumidor: " + strconv.FormatInt(int64(response.Code), 10))
+	}
+	resp := &entity.NFCeResponse{}
+	err := json.Unmarshal(response.Body, resp)
+	if err != nil {
+		return nil, errors.New("erro ao extrair dados do response consulta NFCe: " + string(response.Body[:]))
+	}
+	return resp, nil
 }

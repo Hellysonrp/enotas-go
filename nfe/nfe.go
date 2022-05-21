@@ -49,3 +49,20 @@ func (n *NFe) Cancelar(empresaID, id string) error {
 
 	return nil
 }
+
+func (n *NFe) Consultar(empresaID, id string) (*entity.NFe, error) {
+	url := fmt.Sprintf("%s/empresas/%s/nf-e/%s", config.EndpointV2, empresaID, id)
+	response := n.client.Get(url)
+	if response.Error != nil {
+		return nil, response.Error
+	}
+	if !response.Ok() {
+		return nil, errors.New("erro no retorno da consulta da Nota Fiscal: " + strconv.FormatInt(int64(response.Code), 10))
+	}
+	resp := &entity.NFe{}
+	err := json.Unmarshal(response.Body, resp)
+	if err != nil {
+		return nil, errors.New("erro ao extrair dados do response consulta NFe: " + string(response.Body[:]))
+	}
+	return resp, nil
+}
