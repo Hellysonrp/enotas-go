@@ -26,3 +26,20 @@ func NewNFe(c Cliente, itens []ItemNFe, a Ambiente) *NFe {
 		Ambiente: a,
 	}
 }
+
+type NFeResponse struct {
+	Id                         string    `json:"id"`
+	Ambiente                   Ambiente  `json:"ambienteEmissao"`
+	Status                     string    `json:"status"`
+	MotivoStatus               string    `json:"motivoStatus"`
+	Numero                     uint64    `json:"numero"`
+	Serie                      string    `json:"serie"`
+	ChaveAcesso                string    `json:"chaveAcesso"`
+	LinkDownloadXml            string    `json:"linkDownloadXml"`
+	LinkDanfe                  string    `json:"linkDanfe"`
+	LinkConsultaPorChaveAcesso string    `json:"linkConsultaPorChaveAcesso"`
+	QrCode                     QrCode    `json:"qrCode"`
+	Protocolo                  Protocolo `json:"protocolo"`
+	InformacoesAdicionais      string    `json:"informacoesAdicionais"`
+	DataEmissao                string    `json:"dataEmissao"`
+}
