@@ -24,12 +24,15 @@ func NewNFe(client rest.Client) *NFe {
 func (n *NFe) Emitir(empresaID string, nfe *entity.NFe) error {
 	url := fmt.Sprintf("%s/empresas/%s/nf-e", config.EndpointV2, empresaID)
 	body, err := json.Marshal(nfe)
+	// fmt.Printf("vai la o negocio: %v", string(body[:]))
 	if err != nil {
-		return err
+		// fmt.Printf("error in emitir: body %v", err.Error())
+		return errors.New("error in body: " + err.Error())
 	}
 	response := n.client.Post(url, body)
 	if response.Error != nil {
-		return response.Error
+		// fmt.Printf("error in emitir: response %v", response.Error.Error())
+		return errors.New("error in response: " + response.Error.Error())
 	}
 	if !response.Ok() {
 		return errors.New("erro ao emitir a NFe; code: " + strconv.FormatInt(int64(response.Code), 10))
