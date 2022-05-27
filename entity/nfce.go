@@ -1,18 +1,19 @@
 package entity
 
 type NFCe struct {
-	ID                    string    `json:"id"`
-	Ambiente              Ambiente  `json:"ambienteEmissao"`
-	Tipo                  string    `json:"tipo"`
-	NaturezaOperacao      string    `json:"naturezaOperacao"`
-	EnviarPorEmail        bool      `json:"enviarPorEmail"`
-	Csc                   CSC       `json:"csc"`
-	Pedido                Pedido    `json:"pedido"`
-	InformacoesAdicionais string    `json:"informacoesAdicionais,omitempty"`
-	Numero                uint64    `json:"numero"`
-	Serie                 string    `json:"serie"`
-	Itens                 []ItemNFe `json:"itens"`
-	Cliente               *Cliente  `json:"cliente,omitempty"`
+	ID                          string                      `json:"id"`
+	Ambiente                    Ambiente                    `json:"ambienteEmissao"`
+	Tipo                        string                      `json:"tipo"`
+	NaturezaOperacao            string                      `json:"naturezaOperacao"`
+	EnviarPorEmail              bool                        `json:"enviarPorEmail"`
+	Csc                         CSC                         `json:"csc"`
+	Pedido                      Pedido                      `json:"pedido"`
+	InformacoesAdicionais       string                      `json:"informacoesAdicionais,omitempty"`
+	IndicadorPresencaConsumidor IndicadorPresencaConsumidor `json:"indicadorPresencaConsumidor,omitempty"`
+	Numero                      uint64                      `json:"numero"`
+	Serie                       string                      `json:"serie"`
+	Itens                       []ItemNFe                   `json:"itens"`
+	Cliente                     *Cliente                    `json:"cliente,omitempty"`
 }
 
 type CSC struct {

@@ -27,7 +27,7 @@ func (n *NFCe) Emitir(empresaID string, nfe *entity.NFCe) (*entity.NFCeResponse,
 	if err != nil {
 		return nil, err
 	}
-	fmt.Printf("%s", body)
+	fmt.Printf("NFCEZON %s", string(body[:]))
 	response := n.client.Post(url, body)
 	if response.Error != nil {
 		return nil, response.Error

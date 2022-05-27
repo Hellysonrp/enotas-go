@@ -71,6 +71,7 @@ func (c *client) Send(method, url string, body io.Reader) Response {
 	defer res.Body.Close()
 
 	content, err := ioutil.ReadAll(res.Body)
+	fmt.Printf("response body: %s", string(content[:]))
 	if err != nil {
 		return Response{Error: err}
 	}
