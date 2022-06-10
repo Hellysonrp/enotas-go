@@ -73,3 +73,51 @@ func (n *NFCe) Consultar(empresaID, id string) (*entity.NFCeResponse, error) {
 	}
 	return resp, nil
 }
+
+func (n *NFCe) Inutilizar(empresaID string, inut *entity.NFCeInitulizacao) error {
+	url := fmt.Sprintf("%s/empresas/%s/nfc-e/inutilizacao", config.EndpointV2, empresaID)
+	body, err := json.Marshal(inut)
+	if err != nil {
+		return err
+	}
+	response := n.client.Post(url, body)
+	if response.Error != nil {
+		return response.Error
+	}
+	if !response.Ok() {
+		return errors.New("erro ao inutilizar a NFCe; code: " + strconv.FormatInt(int64(response.Code), 10))
+	}
+
+	return nil
+}
+
+func (n *NFCe) ConsultarInutilizacao(empresaID, inutID string) (*entity.NFCeInitulizacaoResponse, error) {
+	url := fmt.Sprintf("%s/empresas/%s/nfc-e/inutilizacao/%s", config.EndpointV2, empresaID, inutID)
+	response := n.client.Get(url)
+	if response.Error != nil {
+		return nil, response.Error
+	}
+	if !response.Ok() {
+		return nil, errors.New("erro ao consultar inutilizacao da NFCe; code: " + strconv.FormatInt(int64(response.Code), 10))
+	}
+
+	resp := &entity.NFCeInitulizacaoResponse{}
+	err := json.Unmarshal(response.Body, resp)
+	if err != nil {
+		return nil, errors.New("erro ao extrair dados do response inutilizacao " + string(response.Body[:]))
+	}
+	return resp, nil
+}
+
+func (n *NFCe) ConsultarXmlInutilizacao(empresaID, inutID string) ([]byte, error) {
+	url := fmt.Sprintf("%s/empresas/%s/nfc-e/inutilizacao/%s/xml", config.EndpointV2, empresaID, inutID)
+	response := n.client.Get(url)
+	if response.Error != nil {
+		return nil, response.Error
+	}
+	if !response.Ok() {
+		return nil, errors.New("erro ao consultar XML inutilizacao da NFCe; code: " + strconv.FormatInt(int64(response.Code), 10))
+	}
+
+	return response.Body, nil
+}

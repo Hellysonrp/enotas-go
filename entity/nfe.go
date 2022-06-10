@@ -1,5 +1,7 @@
 package entity
 
+import "time"
+
 type NFe struct {
 	ID                          string                      `json:"id"`
 	Ambiente                    Ambiente                    `json:"ambienteEmissao"`
@@ -42,4 +44,27 @@ type NFeResponse struct {
 	Protocolo                  Protocolo `json:"protocolo"`
 	InformacoesAdicionais      string    `json:"informacoesAdicionais"`
 	DataEmissao                string    `json:"dataEmissao"`
+}
+
+type NFeInitulizacao struct {
+	Id            string   `json:"id"`
+	Ambiente      Ambiente `json:"ambienteEmissao"`
+	Serie         string   `json:"serie"`
+	NumeroInicial uint64   `json:"numeroInicial"`
+	NumeroFinal   uint64   `json:"numeroFinal"`
+	Justificativa string   `json:"justificativa"`
+}
+
+type NFeInitulizacaoResponse struct {
+	Id                   string     `json:"id"`
+	Ambiente             Ambiente   `json:"ambienteEmissao"`
+	Status               string     `json:"status"`
+	MotivoStatus         string     `json:"motivoStatus"`
+	Serie                string     `json:"serie"`
+	NumeroInicial        uint64     `json:"numeroInicial"`
+	NumeroFinal          uint64     `json:"numeroFinal"`
+	Justificativa        string     `json:"justificativa"`
+	ProtocoloAutorizacao string     `json:"protocoloAutorizacao"`
+	DataCriacao          *time.Time `json:"dataCriacao"`
+	DataUltimaAlteracao  *time.Time `json:"dataUltimaAlteracao"`
 }
