@@ -14,7 +14,7 @@ type Cliente struct {
 	InscricaoEstadual         string     `json:"inscricaoEstadual,omitempty"`
 	IndicadorContribuinteICMS string     `json:"indicadorContribuinteICMS,omitempty"`
 	Telefone                  string     `json:"telefone,omitempty"`
-	Endereco                  Endereco   `json:"endereco,omitempty"`
+	Endereco                  *Endereco  `json:"endereco,omitempty"`
 }
 
 func (c Cliente) MarshalJSON() ([]byte, error) {
@@ -37,7 +37,7 @@ func NewCliente(n string, d string, end Endereco) Cliente {
 	c := Cliente{
 		Nome:     n,
 		CpfCnpj:  onlyNumbers(d),
-		Endereco: end,
+		Endereco: &end,
 	}
 	c.AutoTipoPessoa()
 	return c
