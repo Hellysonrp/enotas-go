@@ -35,7 +35,7 @@ func TestNFSeMarshalJSON(t *testing.T) {
 			Nome:     "John Doe",
 			Email:    "john@doe.com",
 			CpfCnpj:  "47142365471",
-			Endereco: Endereco{},
+			Endereco: &Endereco{},
 		},
 	}
 	b, err := json.Marshal(n)

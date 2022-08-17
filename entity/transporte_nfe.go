@@ -10,12 +10,12 @@ type Transporte struct {
 
 type EnderecoEntrega struct {
 	Endereco
-	TipoPessoaDestinatario string `json:"tipoPessoaDestinatario"`
-	CpfCnpjDestinatario    string `json:"cpfCnpjDestinatario"`
+	TipoPessoaDestinatario TipoPessoa `json:"tipoPessoaDestinatario"` // ?
+	CpfCnpjDestinatario    string     `json:"cpfCnpjDestinatario"`
 }
 
 type Frete struct {
-	Modalidade string `json:"modalidade"`
+	Modalidade ModalidadeFrete `json:"modalidade"`
 }
 
 type Transportadora struct {
