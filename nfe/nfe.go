@@ -24,7 +24,7 @@ func NewNFe(client rest.Client) *NFe {
 func (n *NFe) Emitir(empresaID string, nfe *entity.NFe) error {
 	url := fmt.Sprintf("%s/empresas/%s/nf-e", config.EndpointV2, empresaID)
 	body, err := json.Marshal(nfe)
-	// fmt.Printf("vai la o negocio: %v", string(body[:]))
+	fmt.Printf("vai la o negocio: %s", string(body[:]))
 	if err != nil {
 		// fmt.Printf("error in emitir: body %v", err.Error())
 		return errors.New("error in body: " + err.Error())
