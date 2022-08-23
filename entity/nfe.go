@@ -18,6 +18,7 @@ type NFe struct {
 	InformacoesAdicionais       string                      `json:"informacoesAdicionais,omitempty"`
 	Numero                      uint64                      `json:"numero"`
 	Serie                       string                      `json:"serie"`
+	NFeReferenciada             []NFeReferencia             `json:"nfeReferenciada,omitempty"`
 	// TODO resto do json completo
 }
 
@@ -68,4 +69,8 @@ type NFeInitulizacaoResponse struct {
 	ProtocoloAutorizacao string     `json:"protocoloAutorizacao"`
 	DataCriacao          *time.Time `json:"dataCriacao"`
 	DataUltimaAlteracao  *time.Time `json:"dataUltimaAlteracao"`
+}
+
+type NFeReferencia struct {
+	ChaveAcesso string `json:"chaveAcesso"`
 }
