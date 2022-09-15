@@ -10,6 +10,7 @@ type NFe struct {
 	NaturezaOperacao            string                      `json:"naturezaOperacao"`
 	Finalidade                  FinalidadeNFe               `json:"finalidade,omitempty"`
 	ConsumidorFinal             bool                        `json:"consumidorFinal"`
+	Pedido                      Pedido                      `json:"pedido,omitempty"`
 	IndicadorPresencaConsumidor IndicadorPresencaConsumidor `json:"indicadorPresencaConsumidor,omitempty"`
 	Cliente                     Cliente                     `json:"cliente"`
 	EnviarPorEmail              bool                        `json:"enviarPorEmail"`

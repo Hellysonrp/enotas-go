@@ -6,6 +6,8 @@ type FinalidadeNFe string
 type IndicadorPresencaConsumidor string
 type TipoOperacao string
 type ModalidadeFrete string
+type PedidoPagamentoTipo string
+type PagamentoTipo string
 
 const (
 	Ambiente_Homologacao Ambiente = "Homologacao"
@@ -36,4 +38,11 @@ const (
 	ModalidadeFrete_TransporteProprioPorContaDoRemetente    ModalidadeFrete = "TransporteProprioPorContaDoRemetente"    // 3
 	ModalidadeFrete_TransporteProprioPorContaDoDestinatario ModalidadeFrete = "TransporteProprioPorContaDoDestinatario" // 4
 	ModalidadeFrete_SemFrete                                ModalidadeFrete = "SemOcorrenciaDeTransporte"               // 9
+
+	PagamentoTipo_Outros          PagamentoTipo = "Outros"
+	PagamentoTipo_Dinheiro        PagamentoTipo = "Dinheiro"
+	PagamentoTipo_CartaoDeCredito PagamentoTipo = "CartaoDeCredito"
+
+	PedidoPagamentoTipo_AVista PedidoPagamentoTipo = "PagamentoAVista"
+	PedidoPagamentoTipo_APrazo PedidoPagamentoTipo = "PagamentoAPrazo"
 )

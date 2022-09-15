@@ -23,21 +23,6 @@ type CSC struct {
 	Csc     string `json:"codigo"`
 }
 
-type Forma struct {
-	Tipo  string  `json:"tipo"`
-	Valor float64 `json:"valor"`
-}
-
-type Pagamento struct {
-	Tipo   string  `json:"tipo"`
-	Formas []Forma `json:"formas"`
-}
-
-type Pedido struct {
-	PresencaConsumidor string    `json:"presencaConsumidor"`
-	Pagamento          Pagamento `json:"pagamento"`
-}
-
 func NewNFCe(c *Cliente, itens []ItemNFe, a Ambiente) *NFCe {
 	return &NFCe{
 		Tipo:     "NFC-e",
