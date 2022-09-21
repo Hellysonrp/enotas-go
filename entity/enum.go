@@ -9,6 +9,8 @@ type ModalidadeFrete string
 type PedidoPagamentoTipo string
 type PagamentoTipo string
 
+type ModalidadeBaseCalculoST int
+
 const (
 	Ambiente_Homologacao Ambiente = "Homologacao"
 	Ambiente_Producao    Ambiente = "Producao"
@@ -45,4 +47,13 @@ const (
 
 	PedidoPagamentoTipo_AVista PedidoPagamentoTipo = "PagamentoAVista"
 	PedidoPagamentoTipo_APrazo PedidoPagamentoTipo = "PagamentoAPrazo"
+
+	ModalidadeBaseCalculoST_PrecoTabelado       ModalidadeBaseCalculoST = 0
+	ModalidadeBaseCalculoST_ListaPositiva       ModalidadeBaseCalculoST = 1
+	ModalidadeBaseCalculoST_ListaNegativa       ModalidadeBaseCalculoST = 2
+	ModalidadeBaseCalculoST_ListaNeutra         ModalidadeBaseCalculoST = 3
+	ModalidadeBaseCalculoST_MargemValorAgregado ModalidadeBaseCalculoST = 4
+	ModalidadeBaseCalculoST_Pauta               ModalidadeBaseCalculoST = 5
+	ModalidadeBaseCalculoST_ValorDaOperacao     ModalidadeBaseCalculoST = 6
+	ModalidadeBaseCalculoST_Nenhum              ModalidadeBaseCalculoST = 7
 )
