@@ -9,6 +9,7 @@ type ModalidadeFrete string
 type PedidoPagamentoTipo string
 type PagamentoTipo string
 
+type ModalidadeBaseCalculo int
 type ModalidadeBaseCalculoST int
 
 const (
@@ -47,6 +48,11 @@ const (
 
 	PedidoPagamentoTipo_AVista PedidoPagamentoTipo = "PagamentoAVista"
 	PedidoPagamentoTipo_APrazo PedidoPagamentoTipo = "PagamentoAPrazo"
+
+	ModalidadeBaseCalculo_MargemValorAgregado ModalidadeBaseCalculo = 0
+	ModalidadeBaseCalculo_Pauta               ModalidadeBaseCalculo = 1
+	ModalidadeBaseCalculo_PrecoTabeladoMax    ModalidadeBaseCalculo = 2
+	ModalidadeBaseCalculo_ValorDaOperacao     ModalidadeBaseCalculo = 3
 
 	ModalidadeBaseCalculoST_PrecoTabelado       ModalidadeBaseCalculoST = 0
 	ModalidadeBaseCalculoST_ListaPositiva       ModalidadeBaseCalculoST = 1
