@@ -27,6 +27,8 @@ type ItemNFeICMS struct {
 	Aliquota                       *float64               `json:"aliquota,omitempty"`
 	PercentualReducaoBaseCalculoST *float64               `json:"percentualReducaoBaseCalculoST,omitempty"`
 	ModalidadeBaseCalculo          *ModalidadeBaseCalculo `json:"modalidadeBaseCalculo,omitempty"`
+	NaoCalculaDifal                bool                   `json:"naoCalcularDifal,omitempty"`
+	NaoCalcularFCP                 bool                   `json:"naoCalcularFCP,omitempty"`
 	// 4 - Margem Valor Agregado
 	ModalidadeBaseCalculoST *ModalidadeBaseCalculoST `json:"modalidadeBaseCalculoST,omitempty"`
 	PercentualMVA           *float64                 `json:"percentualMargemValorAdicionadoST,omitempty"`
