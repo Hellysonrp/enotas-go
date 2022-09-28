@@ -42,12 +42,26 @@ const (
 	ModalidadeFrete_TransporteProprioPorContaDoDestinatario ModalidadeFrete = "TransporteProprioPorContaDoDestinatario" // 4
 	ModalidadeFrete_SemFrete                                ModalidadeFrete = "SemOcorrenciaDeTransporte"               // 9
 
-	PagamentoTipo_Outros          PagamentoTipo = "Outros"
-	PagamentoTipo_Dinheiro        PagamentoTipo = "Dinheiro"
-	PagamentoTipo_CartaoDeCredito PagamentoTipo = "CartaoDeCredito"
+	PagamentoTipo_Outros                                    PagamentoTipo = "Outros"
+	PagamentoTipo_Dinheiro                                  PagamentoTipo = "Dinheiro"
+	PagamentoTipo_CartaoDeCredito                           PagamentoTipo = "CartaoDeCredito"
+	PagamentoTipo_Cheque                                    PagamentoTipo = "Cheque"
+	PagamentoTipo_CartaoDeDebito                            PagamentoTipo = "CartaoDeDebito"
+	PagamentoTipo_CreditoLoja                               PagamentoTipo = "CreditoLoja"
+	PagamentoTipo_ValeAlimentacao                           PagamentoTipo = "ValeAlimentacao"
+	PagamentoTipo_ValeRefeicao                              PagamentoTipo = "ValeRefeicao"
+	PagamentoTipo_ValePresente                              PagamentoTipo = "ValePresente"
+	PagamentoTipo_ValeCombustivel                           PagamentoTipo = "ValeCombustivel"
+	PagamentoTipo_BoletoBancario                            PagamentoTipo = "BoletoBancario"
+	PagamentoTipo_DepositoBancario                          PagamentoTipo = "DepositoBancario"
+	PagamentoTipo_PagamentoInstantaneoPix                   PagamentoTipo = "PagamentoInstantaneoPix"
+	PagamentoTipo_TransferenciaBancariaCarteiraDigital      PagamentoTipo = "TransferenciaBancariaCarteiraDigital"
+	PagamentoTipo_ProgramaFidelidadeCashbackCarteiraVirtual PagamentoTipo = "ProgramaFidelidadeCashbackCarteiraVirtual"
+	PagamentoTipo_SemPagamento                              PagamentoTipo = "SemPagamento"
 
 	PedidoPagamentoTipo_AVista PedidoPagamentoTipo = "PagamentoAVista"
 	PedidoPagamentoTipo_APrazo PedidoPagamentoTipo = "PagamentoAPrazo"
+	PedidoPagamentoTipo_Outros PedidoPagamentoTipo = "Outros"
 
 	ModalidadeBaseCalculo_MargemValorAgregado ModalidadeBaseCalculo = 0
 	ModalidadeBaseCalculo_Pauta               ModalidadeBaseCalculo = 1
