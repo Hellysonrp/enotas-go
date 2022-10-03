@@ -7,6 +7,17 @@ import (
 	"github.com/hashicorp/go-uuid"
 )
 
+type MetadataItem struct {
+	DiscriminacaoServico string         `json:"discriminacaoServico,omitempty"`
+	Quantidade           float64        `json:"quantidade,omitempty"`
+	ValorUnitario        float64        `json:"valorUnitario,omitempty"`
+	Tributavel           ItemTributavel `json:"tributavel,omitempty"`
+}
+
+type Metadata struct {
+	Itens []MetadataItem `json:"itens"`
+}
+
 // NFSE representa a Nota Fiscal de Serviço Eletrônica
 type NFSe struct {
 	ID                string     `json:"id,omitempty"`
@@ -25,6 +36,7 @@ type NFSe struct {
 	ValorTotal        float64    `json:"valorTotal"`
 	Cliente           Cliente    `json:"cliente"`
 	Servico           Servico    `json:"servico"`
+	Metadata          *Metadata  `json:"metadados,omitempty"`
 }
 
 func (n NFSe) MarshalJSON() ([]byte, error) {

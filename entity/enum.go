@@ -8,6 +8,7 @@ type TipoOperacao string
 type ModalidadeFrete string
 type PedidoPagamentoTipo string
 type PagamentoTipo string
+type ItemTributavel string
 
 type ModalidadeBaseCalculo int
 type ModalidadeBaseCalculoST int
@@ -76,4 +77,7 @@ const (
 	ModalidadeBaseCalculoST_Pauta               ModalidadeBaseCalculoST = 5
 	ModalidadeBaseCalculoST_ValorDaOperacao     ModalidadeBaseCalculoST = 6
 	ModalidadeBaseCalculoST_Nenhum              ModalidadeBaseCalculoST = 7
+
+	ItemTributavel_Sim ItemTributavel = "S"
+	ItemTributavel_Nao ItemTributavel = "N"
 )
