@@ -62,6 +62,18 @@ func (n *NFSe) Consultar(empresaID, id string) (*entity.NFSe, error) {
 	return nota, err
 }
 
+func (n *NFSe) ConsultarPorIdExterno(empresaID, id string) (*entity.NFSe, error) {
+	nota := &entity.NFSe{}
+
+	url := fmt.Sprintf("%s/empresas/%s/nfes/porIdExterno/%s", config.Endpoint, empresaID, id)
+	response := n.client.Get(url)
+	if response.Error != nil {
+		return nota, response.Error
+	}
+	err := json.Unmarshal(response.Body, nota)
+	return nota, err
+}
+
 func (n *NFSe) DownloadPDF(empresaID, id string) ([]byte, error) {
 	url := fmt.Sprintf("%s/empresas/%s/nfes/%s/pdf", config.Endpoint, empresaID, id)
 	response := n.client.Get(url)
