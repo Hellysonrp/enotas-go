@@ -30,6 +30,8 @@ type NFSe struct {
 	Numero            int        `json:"numero,omitempty"`
 	CodigoVerificacao string     `json:"codigoVerificacao,omitempty"`
 	ChaveAcesso       string     `json:"chaveAcesso,omitempty"`
+	LinkDownloadPDF   string     `json:"linkDownloadPDF,omitempty"`
+	LinkDownloadXML   string     `json:"linkDownloadXML,omitempty"`
 	NumeroRPS         int        `json:"numeroRps,omitempty"`
 	SerieRPS          string     `json:"serieRps,omitempty"`
 	EnviarPorEmail    bool       `json:"enviarPorEmail"`
