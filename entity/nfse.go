@@ -27,7 +27,7 @@ type NFSe struct {
 	MotivoStatus      string     `json:"motivoStatus,omitempty"`
 	Ambiente          Ambiente   `json:"ambienteEmissao"`
 	DataCompetencia   *time.Time `json:"dataCompetencia,omitempty"`
-	Numero            int        `json:"numero,omitempty"`
+	Numero            string     `json:"numero,omitempty"`
 	CodigoVerificacao string     `json:"codigoVerificacao,omitempty"`
 	ChaveAcesso       string     `json:"chaveAcesso,omitempty"`
 	LinkDownloadPDF   string     `json:"linkDownloadPDF,omitempty"`
