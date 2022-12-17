@@ -1,8 +1,9 @@
 package entity
 
 type Forma struct {
-	Tipo  PagamentoTipo `json:"tipo,omitempty"`
-	Valor float64       `json:"valor,omitempty"`
+	Tipo      PagamentoTipo `json:"tipo,omitempty"`
+	Valor     float64       `json:"valor,omitempty"`
+	Descricao string        `json:"descricao,omitempty"`
 }
 
 type Pagamento struct {
