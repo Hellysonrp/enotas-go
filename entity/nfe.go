@@ -3,15 +3,15 @@ package entity
 import "time"
 
 type NFe struct {
-	ID               string        `json:"id"`
-	Ambiente         Ambiente      `json:"ambienteEmissao"`
-	Tipo             string        `json:"tipo"`
-	TipoOperacao     TipoOperacao  `json:"tipoOperacao,omitempty"`
-	NaturezaOperacao string        `json:"naturezaOperacao"`
-	Finalidade       FinalidadeNFe `json:"finalidade,omitempty"`
-	ConsumidorFinal  bool          `json:"consumidorFinal"`
-	Pedido           *Pedido       `json:"pedido,omitempty"`
-	// Cobranca                    Cobranca                    `json:"cobranca,omitempty"`
+	ID                          string                      `json:"id"`
+	Ambiente                    Ambiente                    `json:"ambienteEmissao"`
+	Tipo                        string                      `json:"tipo"`
+	TipoOperacao                TipoOperacao                `json:"tipoOperacao,omitempty"`
+	NaturezaOperacao            string                      `json:"naturezaOperacao"`
+	Finalidade                  FinalidadeNFe               `json:"finalidade,omitempty"`
+	ConsumidorFinal             bool                        `json:"consumidorFinal"`
+	Pedido                      *Pedido                     `json:"pedido,omitempty"`
+	Cobranca                    *Cobranca                   `json:"cobranca,omitempty"`
 	IndicadorPresencaConsumidor IndicadorPresencaConsumidor `json:"indicadorPresencaConsumidor,omitempty"`
 	Cliente                     Cliente                     `json:"cliente"`
 	EnviarPorEmail              bool                        `json:"enviarPorEmail"`
