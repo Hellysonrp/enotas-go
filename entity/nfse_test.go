@@ -28,7 +28,7 @@ func TestNFSeMarshalJSON(t *testing.T) {
 		ID:              "e93ceafb-6fd9-4543-9106-e0aebac9ef8d",
 		Ambiente:        Ambiente_Homologacao,
 		DataCompetencia: &dataCompetencia,
-		Numero:          42,
+		Numero:          "42",
 		EnviarPorEmail:  false,
 		ValorTotal:      3.47,
 		Cliente: Cliente{
