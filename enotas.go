@@ -54,6 +54,11 @@ func (e *ENotas) NFCe() *nfce.NFCe {
 	return nfce.NewNFCe(c)
 }
 
+func (e *ENotas) CCe() *nfe.CCe {
+	c := e.getClient()
+	return nfe.NewCCe(c)
+}
+
 func (e *ENotas) ServicosMunicipais(uf, city string, pageNumber, pageSize int) ([]entity.ServicoMunicipio, error) {
 	c := e.getClient()
 	return servico.NewServicoMunicipio(c).Consulta(uf, city, pageNumber, pageSize)
