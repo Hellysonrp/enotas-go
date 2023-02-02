@@ -9,6 +9,7 @@ type ModalidadeFrete string
 type PedidoPagamentoTipo string
 type PagamentoTipo string
 type ItemTributavel string
+type ManifestacaoTipo string
 
 type ModalidadeBaseCalculo int
 type ModalidadeBaseCalculoST int
@@ -80,4 +81,9 @@ const (
 
 	ItemTributavel_Sim ItemTributavel = "S"
 	ItemTributavel_Nao ItemTributavel = "N"
+
+	ManifestacaoTipo_CienciaDaOperacao         ManifestacaoTipo = "CienciaDaOperacao"
+	ManifestacaoTipo_ConfirmacaoDaOperacao     ManifestacaoTipo = "ConfirmacaoDaOperacao"
+	ManifestacaoTipo_DesconhecimentoDaOperacao ManifestacaoTipo = "DesconhecimentoDaOperacao"
+	ManifestacaoTipo_OperacaoNaoRealizada      ManifestacaoTipo = "OperacaoNaoRealizada"
 )

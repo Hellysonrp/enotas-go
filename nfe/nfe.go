@@ -5,6 +5,7 @@ import (
 	"errors"
 	"fmt"
 	"strconv"
+	"time"
 
 	"github.com/padmoney/enotas-go/config"
 	"github.com/padmoney/enotas-go/entity"
@@ -128,4 +129,45 @@ func (n *NFe) ConsultarXmlInutilizacao(empresaID, inutID string) ([]byte, error)
 	}
 
 	return response.Body, nil
+}
+
+func (n *NFe) ConsultaNotaTomada(empresaId string, datainicial, datafinal *time.Time, continuationToken *string) (*entity.ConsultaManifestacaoResponse, error) {
+	url := fmt.Sprintf("%s/empresas/%s/nota-tomada/nf-e/consulta", config.EndpointV3, empresaId)
+	response := n.client.Get(url)
+	if response.Error != nil {
+		return nil, response.Error
+	}
+	if !response.Ok() {
+		return nil, errors.New("erro no retorno da consulta nota tomada: " + strconv.FormatInt(int64(response.Code), 10))
+	}
+	resp := &entity.ConsultaManifestacaoResponse{}
+	err := json.Unmarshal(response.Body, resp)
+	if err != nil {
+		return nil, errors.New("erro ao extrair dados do response consulta nota tomada: " + string(response.Body[:]))
+	}
+	return resp, nil
+}
+
+func (n *NFe) ManifestacaoDestinatario(empresaId, chaveAcesso string, manifestacao entity.ManifestacaoRequest) (*entity.ManifestacaoResponse, error) {
+	url := fmt.Sprintf("%s/empresas/%s/nf-e/manifestacao/%s", config.EndpointV3, empresaId, chaveAcesso)
+	body, err := json.Marshal(manifestacao)
+
+	if err != nil {
+		fmt.Printf("error in manifestacao: body %v\r\n", err.Error())
+		return nil, errors.New("error in body: " + err.Error())
+	}
+	response := n.client.Post(url, body)
+	if response.Error != nil {
+		// fmt.Printf("error in emitir: response %v", response.Error.Error())
+		return nil, errors.New("error in response: " + response.Error.Error())
+	}
+	if !response.Ok() {
+		return nil, errors.New("erro ao manifestar a NFe; code: " + strconv.FormatInt(int64(response.Code), 10))
+	}
+	resp := &entity.ManifestacaoResponse{}
+	err = json.Unmarshal(response.Body, resp)
+	if err != nil {
+		return nil, errors.New("erro ao extrair dados do response manifestação nf-e: " + string(response.Body[:]))
+	}
+	return resp, nil
 }
