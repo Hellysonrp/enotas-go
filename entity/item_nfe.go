@@ -1,16 +1,22 @@
 package entity
 
 type ItemNFe struct {
-	CFOP            string          `json:"cfop"`
-	Codigo          string          `json:"codigo"`
-	Descricao       string          `json:"descricao"`
-	NCM             string          `json:"ncm"`
-	Quantidade      float64         `json:"quantidade"`
-	UnidadeMedida   string          `json:"unidadeMedida"`
-	ValorUnitario   float64         `json:"valorUnitario"`
-	Frete           float64         `json:"frete"`
-	Impostos        ItemNFeImpostos `json:"impostos"`
-	CodigoBeneficio string          `json:"codigoBeneficioFiscal,omitempty"`
+	CFOP            string              `json:"cfop"`
+	Codigo          string              `json:"codigo"`
+	Descricao       string              `json:"descricao"`
+	NCM             string              `json:"ncm"`
+	Quantidade      float64             `json:"quantidade"`
+	UnidadeMedida   string              `json:"unidadeMedida"`
+	ValorUnitario   float64             `json:"valorUnitario"`
+	Frete           float64             `json:"frete"`
+	Impostos        ItemNFeImpostos     `json:"impostos"`
+	CodigoBeneficio string              `json:"codigoBeneficioFiscal,omitempty"`
+	Combustivel     *ItemNFeCombustivel `json:"combustivel,omitempty"`
+}
+
+type ItemNFeCombustivel struct {
+	CodigoProdutoANP string `json:"codigoProdutoANP,omitempty"`
+	UfConsumo        string `json:"ufConsumo,omitempty"`
 }
 
 type ItemNFeImpostos struct {
