@@ -11,7 +11,7 @@ type CCe struct {
 	ID       string   `json:"id"`
 	Ambiente Ambiente `json:"ambienteEmissao"`
 	Numero   uint64   `json:"numero"`
-	Correcao string   `json:"string"`
+	Correcao string   `json:"correcao"`
 	NFe      CCeNFe   `json:"nfe"`
 }
 
