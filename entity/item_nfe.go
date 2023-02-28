@@ -8,6 +8,7 @@ type ItemNFe struct {
 	Quantidade      float64             `json:"quantidade"`
 	UnidadeMedida   string              `json:"unidadeMedida"`
 	ValorUnitario   float64             `json:"valorUnitario"`
+	Desconto        float64             `json:"desconto,omitempty"`
 	Frete           float64             `json:"frete"`
 	Impostos        ItemNFeImpostos     `json:"impostos"`
 	CodigoBeneficio string              `json:"codigoBeneficioFiscal,omitempty"`
