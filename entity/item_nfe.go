@@ -24,6 +24,7 @@ type ItemNFeImpostos struct {
 	ICMS   *ItemNFeICMS  `json:"icms,omitempty"`
 	Pis    ItemNFePis    `json:"pis"`
 	Cofins ItemNFeCofins `json:"cofins"`
+	IPI    *ItemNFeIPI   `json:"ipi,omitempty"`
 }
 
 type ItemNFeICMS struct {
@@ -56,6 +57,11 @@ type ItemNFeCofins struct {
 
 type ItemNFePorAliquota struct {
 	Aliquota float64 `json:"aliquota"`
+}
+
+type ItemNFeIPI struct {
+	SituacaoTributaria string  `json:"situacaoTributaria"`
+	Aliquota           float64 `json:"aliquota,omitempty"`
 }
 
 // TODO percentualAproximadoTributos
