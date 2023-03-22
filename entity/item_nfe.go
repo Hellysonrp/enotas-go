@@ -60,8 +60,8 @@ type ItemNFePorAliquota struct {
 }
 
 type ItemNFeIPI struct {
-	SituacaoTributaria string  `json:"situacaoTributaria"`
-	Aliquota           float64 `json:"aliquota,omitempty"`
+	SituacaoTributaria string              `json:"situacaoTributaria"`
+	PorAliquota        *ItemNFePorAliquota `json:"porAliquota,omitempty"`
 }
 
 // TODO percentualAproximadoTributos
