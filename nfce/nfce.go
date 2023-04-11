@@ -121,3 +121,16 @@ func (n *NFCe) ConsultarXmlInutilizacao(empresaID, inutID string) ([]byte, error
 
 	return response.Body, nil
 }
+
+func (n *NFCe) ConsultarXMLCancelamento(empresaId, identifier string) ([]byte, error) {
+	url := fmt.Sprintf("%s/empresas/%s/nfc-e/%s/xmlCancelamento", config.EndpointV2, empresaId, identifier)
+	response := n.client.Get(url)
+	if response.Error != nil {
+		return nil, response.Error
+	}
+	if !response.Ok() {
+		return nil, errors.New("erro ao consultar XML cancelamento da NFCe; code: " + strconv.FormatInt(int64(response.Code), 10))
+	}
+
+	return response.Body, nil
+}

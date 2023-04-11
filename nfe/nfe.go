@@ -131,6 +131,19 @@ func (n *NFe) ConsultarXmlInutilizacao(empresaID, inutID string) ([]byte, error)
 	return response.Body, nil
 }
 
+func (n *NFe) ConsultarXMLCancelamento(empresaId, identifier string) ([]byte, error) {
+	url := fmt.Sprintf("%s/empresas/%s/nf-e/%s/xmlCancelamento", config.EndpointV2, empresaId, identifier)
+	response := n.client.Get(url)
+	if response.Error != nil {
+		return nil, response.Error
+	}
+	if !response.Ok() {
+		return nil, errors.New("erro ao consultar XML cancelamento da NFe; code: " + strconv.FormatInt(int64(response.Code), 10))
+	}
+
+	return response.Body, nil
+}
+
 func (n *NFe) ConsultaNotaTomada(empresaId string, datainicial, datafinal *time.Time, continuationToken *string) (*entity.ConsultaManifestacaoResponse, error) {
 	url := fmt.Sprintf("%s/empresas/%s/nota-tomada/nf-e/consulta", config.EndpointV3, empresaId)
 	response := n.client.Get(url)
