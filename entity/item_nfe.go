@@ -1,18 +1,19 @@
 package entity
 
 type ItemNFe struct {
-	CFOP            string              `json:"cfop"`
-	Codigo          string              `json:"codigo"`
-	Descricao       string              `json:"descricao"`
-	NCM             string              `json:"ncm"`
-	Quantidade      float64             `json:"quantidade"`
-	UnidadeMedida   string              `json:"unidadeMedida"`
-	ValorUnitario   float64             `json:"valorUnitario"`
-	Descontos       float64             `json:"descontos,omitempty"`
-	Frete           float64             `json:"frete"`
-	Impostos        ItemNFeImpostos     `json:"impostos"`
-	CodigoBeneficio string              `json:"codigoBeneficioFiscal,omitempty"`
-	Combustivel     *ItemNFeCombustivel `json:"combustivel,omitempty"`
+	CFOP              string                    `json:"cfop"`
+	Codigo            string                    `json:"codigo"`
+	Descricao         string                    `json:"descricao"`
+	NCM               string                    `json:"ncm"`
+	Quantidade        float64                   `json:"quantidade"`
+	UnidadeMedida     string                    `json:"unidadeMedida"`
+	ValorUnitario     float64                   `json:"valorUnitario"`
+	Descontos         float64                   `json:"descontos,omitempty"`
+	Frete             float64                   `json:"frete"`
+	Impostos          ItemNFeImpostos           `json:"impostos"`
+	ImpostosDevolucao *ItemNFeImpostosDevolucao `json:"impostosDevolucao,omitempty"`
+	CodigoBeneficio   string                    `json:"codigoBeneficioFiscal,omitempty"`
+	Combustivel       *ItemNFeCombustivel       `json:"combustivel,omitempty"`
 }
 
 type ItemNFeCombustivel struct {
@@ -25,6 +26,15 @@ type ItemNFeImpostos struct {
 	Pis    ItemNFePis    `json:"pis"`
 	Cofins ItemNFeCofins `json:"cofins"`
 	IPI    *ItemNFeIPI   `json:"ipi,omitempty"`
+}
+
+type ItemNFeImpostosDevolucao struct {
+	PercentualMercadoriaDevolvida float64                     `json:"percentualMercadoriaDevolvida"`
+	Ipi                           ItemNFeImpostosDevolucaoIpi `json:"ipi"`
+}
+
+type ItemNFeImpostosDevolucaoIpi struct {
+	ValorIpiDevolvido float64 `json:"valorIpiDevolvido"`
 }
 
 type ItemNFeICMS struct {
