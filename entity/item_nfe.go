@@ -53,6 +53,10 @@ type ItemNFeICMS struct {
 	BaseCalculoST           *float64                 `json:"baseCalculoST,omitempty"`
 	AliquotaST              *float64                 `json:"aliquotaST,omitempty"`
 	ValorST                 *float64                 `json:"valorST,omitempty"`
+	BaseCalculoEfetiva      *float64                 `json:"baseCalculoEfetiva,omitempty"`
+	ValorSubstituto         *float64                 `json:"valorSubstituto,omitempty"`
+	AliquotaEfetiva         *float64                 `json:"aliquotaEfetiva,omitempty"`
+	ValorEfetivo            *float64                 `json:"valorEfetivo,omitempty"`
 }
 
 type ItemNFePis struct {
