@@ -69,6 +69,7 @@ type Empresa struct {
 	ConfiguracoesNFSeProducao    ConfigNFSe `json:"configuracoesNFSeProducao"`
 	NomeEmpresaCertificado       string     `json:"nome"`
 	DataVencimentoCertificado    string     `json:"dataVencimento"`
+	MEI                          bool       `json:"mei"`
 }
 
 type EmpresaV2 struct {
