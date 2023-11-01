@@ -20,25 +20,26 @@ type Metadata struct {
 
 // NFSE representa a Nota Fiscal de Serviço Eletrônica
 type NFSe struct {
-	ID                string     `json:"id,omitempty"`
-	Tipo              string     `json:"tipo,omitempty"`
-	IdExterno         string     `json:"idExterno,omitempty"`
-	Status            string     `json:"status,omitempty"`
-	MotivoStatus      string     `json:"motivoStatus,omitempty"`
-	Ambiente          Ambiente   `json:"ambienteEmissao"`
-	DataCompetencia   *time.Time `json:"dataCompetencia,omitempty"`
-	Numero            string     `json:"numero,omitempty"`
-	CodigoVerificacao string     `json:"codigoVerificacao,omitempty"`
-	ChaveAcesso       string     `json:"chaveAcesso,omitempty"`
-	LinkDownloadPDF   string     `json:"linkDownloadPDF,omitempty"`
-	LinkDownloadXML   string     `json:"linkDownloadXML,omitempty"`
-	NumeroRPS         int        `json:"numeroRps,omitempty"`
-	SerieRPS          string     `json:"serieRps,omitempty"`
-	EnviarPorEmail    bool       `json:"enviarPorEmail"`
-	ValorTotal        float64    `json:"valorTotal"`
-	Cliente           Cliente    `json:"cliente"`
-	Servico           Servico    `json:"servico"`
-	Metadata          *Metadata  `json:"metadados,omitempty"`
+	ID                   string                `json:"id,omitempty"`
+	Tipo                 string                `json:"tipo,omitempty"`
+	IdExterno            string                `json:"idExterno,omitempty"`
+	Status               string                `json:"status,omitempty"`
+	MotivoStatus         string                `json:"motivoStatus,omitempty"`
+	Ambiente             Ambiente              `json:"ambienteEmissao"`
+	DataCompetencia      *time.Time            `json:"dataCompetencia,omitempty"`
+	Numero               string                `json:"numero,omitempty"`
+	CodigoVerificacao    string                `json:"codigoVerificacao,omitempty"`
+	ChaveAcesso          string                `json:"chaveAcesso,omitempty"`
+	LinkDownloadPDF      string                `json:"linkDownloadPDF,omitempty"`
+	LinkDownloadXML      string                `json:"linkDownloadXML,omitempty"`
+	NumeroRPS            int                   `json:"numeroRps,omitempty"`
+	SerieRPS             string                `json:"serieRps,omitempty"`
+	EnviarPorEmail       bool                  `json:"enviarPorEmail"`
+	DadosAdicionaisEmail *DadosAdicionaisEmail `json:"dadosAdicionaisEmail,omitempty"`
+	ValorTotal           float64               `json:"valorTotal"`
+	Cliente              Cliente               `json:"cliente"`
+	Servico              Servico               `json:"servico"`
+	Metadata             *Metadata             `json:"metadados,omitempty"`
 }
 
 func (n NFSe) MarshalJSON() ([]byte, error) {

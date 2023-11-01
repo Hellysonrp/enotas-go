@@ -15,6 +15,7 @@ type NFe struct {
 	IndicadorPresencaConsumidor IndicadorPresencaConsumidor `json:"indicadorPresencaConsumidor,omitempty"`
 	Cliente                     Cliente                     `json:"cliente"`
 	EnviarPorEmail              bool                        `json:"enviarPorEmail"`
+	DadosAdicionaisEmail        *DadosAdicionaisEmail       `json:"dadosAdicionaisEmail,omitempty"`
 	Itens                       []ItemNFe                   `json:"itens"`
 	Transporte                  *Transporte                 `json:"transporte,omitempty"`
 	InformacoesAdicionais       string                      `json:"informacoesAdicionais,omitempty"`

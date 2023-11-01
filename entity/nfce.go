@@ -8,6 +8,7 @@ type NFCe struct {
 	Tipo                        string                      `json:"tipo"`
 	NaturezaOperacao            string                      `json:"naturezaOperacao"`
 	EnviarPorEmail              bool                        `json:"enviarPorEmail"`
+	DadosAdicionaisEmail        *DadosAdicionaisEmail       `json:"dadosAdicionaisEmail,omitempty"`
 	Csc                         CSC                         `json:"csc"`
 	Pedido                      Pedido                      `json:"pedido"`
 	InformacoesAdicionais       string                      `json:"informacoesAdicionais,omitempty"`
