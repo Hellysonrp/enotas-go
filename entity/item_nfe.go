@@ -18,9 +18,12 @@ type ItemNFe struct {
 }
 
 type ItemNFeCombustivel struct {
-	CodigoProdutoANP     string   `json:"codigoProdutoANP,omitempty"`
-	PercentualGasNatural *float64 `json:"percentualGasNatural,omitempty"`
-	UfConsumo            string   `json:"ufConsumo,omitempty"`
+	CodigoProdutoANP              string   `json:"codigoProdutoANP,omitempty"`
+	PercentualGasNatural          *float64 `json:"percentualGasNatural,omitempty"`
+	PercentualGasNaturalImportado *float64 `json:"percentualGasNaturalImportado,omitempty"`
+	PercentualGLPDerivadoPetroleo *float64 `json:"percentualGLPDerivadoPetroleo,omitempty"`
+	ValorPartida                  *float64 `json:"valorDePartida,omitempty"`
+	UfConsumo                     string   `json:"ufConsumo,omitempty"`
 }
 
 type ItemNFeImpostos struct {
