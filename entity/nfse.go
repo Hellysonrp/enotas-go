@@ -8,10 +8,13 @@ import (
 )
 
 type MetadataItem struct {
-	DiscriminacaoServico string         `json:"discriminacaoServico,omitempty"`
-	Quantidade           float64        `json:"quantidade,omitempty"`
-	ValorUnitario        float64        `json:"valorUnitario,omitempty"`
-	Tributavel           ItemTributavel `json:"tributavel,omitempty"`
+	DiscriminacaoServico   string         `json:"discriminacaoServico,omitempty"`
+	Quantidade             float64        `json:"quantidade,omitempty"`
+	ValorUnitario          float64        `json:"valorUnitario,omitempty"`
+	Tributavel             ItemTributavel `json:"tributavel,omitempty"`
+	AliquotaISS            *float64       `json:"aliquotaIss,omitempty"`
+	ItemListaServicoLC116  *string        `json:"itemListaServicoLC116,omitempty"`
+	CodigoServicoMunicipio *string        `json:"codigoServicoMunicipio,omitempty"`
 }
 
 type Metadata struct {
