@@ -12,6 +12,7 @@ type Servico struct {
 	ValorCSLL                 *float64 `json:"valorCsll,omitempty"`
 	ValorINSS                 *float64 `json:"valorInss,omitempty"`
 	ValorIR                   *float64 `json:"valorIr,omitempty"`
+	ValorISS                  *float64 `json:"valorIss,omitempty"`
 	MunicipioPrestacaoServico string   `json:"municipioPrestacaoServico,omitempty"`
 }
 

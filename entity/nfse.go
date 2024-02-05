@@ -43,6 +43,12 @@ type NFSe struct {
 	Cliente              Cliente               `json:"cliente"`
 	Servico              Servico               `json:"servico"`
 	Metadata             *Metadata             `json:"metadados,omitempty"`
+	/* Natureza da Operação
+	1 - Dentro do municipio
+	2 - Fora do municipio
+	se não enviar, o enotas faz a validação corretamente
+	*/
+	NaturezaOperacao *string `json:"naturezaOperacao,omitempty"`
 }
 
 func (n NFSe) MarshalJSON() ([]byte, error) {
