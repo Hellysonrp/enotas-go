@@ -10,7 +10,7 @@ type Cliente struct {
 	Nome                      string     `json:"nome,omitempty"`
 	Email                     string     `json:"email,omitempty"`
 	CpfCnpj                   string     `json:"cpfCnpj,omitempty"`
-	InscricaoMunicipal        string     `json:"instricaoMunicipal,omitempty"`
+	InscricaoMunicipal        string     `json:"inscricaoMunicipal,omitempty"`
 	InscricaoEstadual         string     `json:"inscricaoEstadual,omitempty"`
 	IndicadorContribuinteICMS string     `json:"indicadorContribuinteICMS,omitempty"`
 	Telefone                  string     `json:"telefone,omitempty"`
