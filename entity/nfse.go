@@ -43,6 +43,7 @@ type NFSe struct {
 	Cliente              Cliente               `json:"cliente"`
 	Servico              Servico               `json:"servico"`
 	Metadata             *Metadata             `json:"metadados,omitempty"`
+	Observacoes          *string               `json:"observacoes,omitempty"`
 	/* Natureza da Operação
 	1 - Dentro do municipio
 	2 - Fora do municipio
