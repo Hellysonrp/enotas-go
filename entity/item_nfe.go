@@ -56,15 +56,17 @@ type ItemNFeICMS struct {
 	PercentualDiferimento          *float64               `json:"percentualDiferimento,omitempty"`
 	ValorDiferimento               *float64               `json:"valorDiferimento,omitempty"`
 	// 4 - Margem Valor Agregado
-	ModalidadeBaseCalculoST *ModalidadeBaseCalculoST `json:"modalidadeBaseCalculoST,omitempty"`
-	PercentualMVA           *float64                 `json:"percentualMargemValorAdicionadoST,omitempty"`
-	BaseCalculoST           *float64                 `json:"baseCalculoST,omitempty"`
-	AliquotaST              *float64                 `json:"aliquotaST,omitempty"`
-	ValorST                 *float64                 `json:"valorST,omitempty"`
-	BaseCalculoEfetiva      *float64                 `json:"baseCalculoEfetiva,omitempty"`
-	ValorSubstituto         *float64                 `json:"valorSubstituto,omitempty"`
-	AliquotaEfetiva         *float64                 `json:"aliquotaEfetiva,omitempty"`
-	ValorEfetivo            *float64                 `json:"valorEfetivo,omitempty"`
+	ModalidadeBaseCalculoST        *ModalidadeBaseCalculoST `json:"modalidadeBaseCalculoST,omitempty"`
+	PercentualMVA                  *float64                 `json:"percentualMargemValorAdicionadoST,omitempty"`
+	BaseCalculoST                  *float64                 `json:"baseCalculoST,omitempty"`
+	AliquotaST                     *float64                 `json:"aliquotaST,omitempty"`
+	ValorST                        *float64                 `json:"valorST,omitempty"`
+	BaseCalculoEfetiva             *float64                 `json:"baseCalculoEfetiva,omitempty"`
+	ValorSubstituto                *float64                 `json:"valorSubstituto,omitempty"`
+	AliquotaEfetiva                *float64                 `json:"aliquotaEfetiva,omitempty"`
+	ValorEfetivo                   *float64                 `json:"valorEfetivo,omitempty"`
+	AliquotaCreditoSimplesNacional *float64                 `json:"aliquotaCreditoSimplesNacional,omitempty"`
+	ValorCreditoSimplesNacional    *float64                 `json:"valorCreditoSimplesNacional,omitempty"`
 }
 
 type ItemNFePis struct {
