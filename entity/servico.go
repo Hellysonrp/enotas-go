@@ -15,7 +15,7 @@ type Servico struct {
 	ValorINSS                 *float64    `json:"valorInss,omitempty"`
 	ValorIR                   *float64    `json:"valorIr,omitempty"`
 	ValorISS                  *float64    `json:"valorIss,omitempty"`
-	MunicipioPrestacaoServico json.Number `json:"municipioPrestacaoServico,omitempty,string"`
+	MunicipioPrestacaoServico json.Number `json:"municipioPrestacaoServico,omitempty"`
 }
 
 // NewService cria um novo serviço
