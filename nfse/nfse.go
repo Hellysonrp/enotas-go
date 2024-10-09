@@ -50,8 +50,8 @@ func (n *NFSe) CancelarPorIdExterno(empresaID, id string) (string, error) {
 	return ret.ID, nil
 }
 
-func (n *NFSe) Consultar(empresaID, id string) (*entity.NFSe, error) {
-	nota := &entity.NFSe{}
+func (n *NFSe) Consultar(empresaID, id string) (*entity.NFSeConsulta, error) {
+	nota := &entity.NFSeConsulta{}
 
 	url := fmt.Sprintf("%s/empresas/%s/nfes/%s", config.Endpoint, empresaID, id)
 	response := n.client.Get(url)
@@ -62,8 +62,8 @@ func (n *NFSe) Consultar(empresaID, id string) (*entity.NFSe, error) {
 	return nota, err
 }
 
-func (n *NFSe) ConsultarPorIdExterno(empresaID, id string) (*entity.NFSe, error) {
-	nota := &entity.NFSe{}
+func (n *NFSe) ConsultarPorIdExterno(empresaID, id string) (*entity.NFSeConsulta, error) {
+	nota := &entity.NFSeConsulta{}
 
 	url := fmt.Sprintf("%s/empresas/%s/nfes/porIdExterno/%s", config.Endpoint, empresaID, id)
 	response := n.client.Get(url)
