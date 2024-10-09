@@ -16,6 +16,20 @@ type Servico struct {
 	MunicipioPrestacaoServico string   `json:"municipioPrestacaoServico,omitempty"`
 }
 
+type ServicoConsulta struct {
+	CNAE                   string   `json:"cnae"`
+	CodigoServicoMunicipio string   `json:"codigoServicoMunicipio"`
+	Descricao              string   `json:"descricao"`
+	AliquotaISS            *float64 `json:"aliquotaIss,omitempty"`
+	IssRetidoFonte         *bool    `json:"issRetidoFonte,omitempty"`
+	ValorPIS               *float64 `json:"valorPis,omitempty"`
+	ValorCOFINS            *float64 `json:"valorCofins,omitempty"`
+	ValorCSLL              *float64 `json:"valorCsll,omitempty"`
+	ValorINSS              *float64 `json:"valorInss,omitempty"`
+	ValorIR                *float64 `json:"valorIr,omitempty"`
+	ValorISS               *float64 `json:"valorIss,omitempty"`
+}
+
 // NewService cria um novo serviço
 func NewServico(d string, c string, cnae string, iss float64) Servico {
 	return Servico{
