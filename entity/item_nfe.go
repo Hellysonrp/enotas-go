@@ -37,6 +37,7 @@ type ItemNFeImpostos struct {
 type ItemNFeTributos struct {
 	Simplificado *ItemNFeTributosSimplificado `json:"simplificado,omitempty"`
 	Detalhado    *ItemNFeTributosDetalhado    `json:"detalhado,omitempty"`
+	Fonte        string                       `json:"fonte,omitempty"`
 }
 
 type ItemNFeTributosSimplificado struct {
