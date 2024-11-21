@@ -27,10 +27,26 @@ type ItemNFeCombustivel struct {
 }
 
 type ItemNFeImpostos struct {
-	ICMS   *ItemNFeICMS  `json:"icms,omitempty"`
-	Pis    ItemNFePis    `json:"pis"`
-	Cofins ItemNFeCofins `json:"cofins"`
-	IPI    *ItemNFeIPI   `json:"ipi,omitempty"`
+	ICMS     *ItemNFeICMS     `json:"icms,omitempty"`
+	Pis      ItemNFePis       `json:"pis"`
+	Cofins   ItemNFeCofins    `json:"cofins"`
+	IPI      *ItemNFeIPI      `json:"ipi,omitempty"`
+	Tributos *ItemNFeTributos `json:"percentualAproximadoTributos,omitempty"`
+}
+
+type ItemNFeTributos struct {
+	Simplificado *ItemNFeTributosSimplificado `json:"simplificado,omitempty"`
+	Detalhado    *ItemNFeTributosDetalhado    `json:"detalhado,omitempty"`
+}
+
+type ItemNFeTributosSimplificado struct {
+	Percentual float64 `json:"percentual"`
+}
+
+type ItemNFeTributosDetalhado struct {
+	PercentualFederal   float64 `json:"percentualFederal"`
+	PercentualEstadual  float64 `json:"percentualEstadual"`
+	PercentualMunicipal float64 `json:"percentualMunicipal"`
 }
 
 type ItemNFeImpostosDevolucao struct {
