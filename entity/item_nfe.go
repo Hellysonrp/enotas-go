@@ -83,7 +83,7 @@ type ItemNFeICMS struct {
 	AliquotaEfetiva                *float64                 `json:"aliquotaEfetiva,omitempty"`
 	ValorEfetivo                   *float64                 `json:"valorEfetivo,omitempty"`
 	AliquotaCreditoSimplesNacional *float64                 `json:"aliquotaCreditoSimplesNacional,omitempty"`
-	ValorCreditoSimplesNacional    *float64                 `json:"valorCreditoSimplesNacional,omitempty"`
+	ValorCreditoSimplesNacional    string                   `json:"valorCreditoSimplesNacional,omitempty"`
 }
 
 type ItemNFePis struct {
